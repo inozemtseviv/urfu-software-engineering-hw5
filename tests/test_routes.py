@@ -6,7 +6,7 @@ from app.services.local_summarizer_service import LocalSummarizerService
 from app.services.remote_summarizer_service import RemoteSummarizerService
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def mock_init(monkeypatch):
     def mock_init(*args, **kwargs):
         return
@@ -15,7 +15,7 @@ def mock_init(monkeypatch):
     monkeypatch.setattr(RemoteSummarizerService, "__init__", mock_init)
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def mock_summarize(monkeypatch):
     def mock_summarize(*args, **kwargs):
         return "Test text"
