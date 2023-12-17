@@ -2,6 +2,7 @@ from fastapi.testclient import TestClient
 from unittest.mock import patch
 
 from app.services.base_summarizer_service import BaseSummarizerService
+from app.services import local_summarizer_service, remote_summarizer_service
 
 
 class FakeLocalSummarizerService(BaseSummarizerService):
